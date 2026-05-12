@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import {
-  SiReact, SiTypescript, SiRedux, SiGraphql, SiGit
+  SiReact, SiTypescript, SiRedux, SiGraphql
 } from 'react-icons/si';
 import { Server, Zap, Radio, ShieldCheck, Cloud, Wrench, CheckCircle2, Cpu } from 'lucide-react';
 
@@ -41,7 +41,7 @@ const SkillItem = ({ name, icon, percent, delay }: { name: string, icon: JSX.Ele
 const Skills: React.FC = () => {
   const { t, i18n } = useTranslation();
   const isAr = i18n.language === 'ar';
-  
+
   const categories = [
     {
       title: isAr ? "واجهة المستخدم وأطر العمل الأساسية" : "Frontend & Core Frameworks",
@@ -105,8 +105,8 @@ const Skills: React.FC = () => {
 
       <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
         {categories.map((cat, catIdx) => (
-          <motion.div 
-            key={catIdx} 
+          <motion.div
+            key={catIdx}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: catIdx * 0.1 }}

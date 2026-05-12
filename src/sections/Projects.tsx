@@ -5,7 +5,7 @@ import { projects, Project } from '../data/projects';
 import { useTranslation } from 'react-i18next';
 
 const ProjectModal = ({ project, isOpen, onClose }: { project: Project, isOpen: boolean, onClose: () => void }) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   if (!isOpen) return null;
 
   const isAr = i18n.language === 'ar';
@@ -20,21 +20,21 @@ const ProjectModal = ({ project, isOpen, onClose }: { project: Project, isOpen: 
 
   return (
     <AnimatePresence>
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10"
       >
         <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-md" onClick={onClose} />
-        
-        <motion.div 
+
+        <motion.div
           initial={{ scale: 0.9, y: 20, opacity: 0 }}
           animate={{ scale: 1, y: 0, opacity: 1 }}
           exit={{ scale: 0.9, y: 20, opacity: 0 }}
           className="relative w-full max-w-5xl max-h-[90vh] bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col md:flex-row rtl:md:flex-row-reverse border border-slate-200 dark:border-slate-800"
         >
-          <button 
+          <button
             onClick={onClose}
             className="absolute top-6 right-6 rtl:right-auto rtl:left-6 z-[110] p-3 bg-slate-900/40 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-slate-900/60 transition-all"
           >
@@ -64,8 +64,8 @@ const ProjectModal = ({ project, isOpen, onClose }: { project: Project, isOpen: 
                     <Layout size={14} className="me-2" /> {isAr ? 'نظرة عامة على المشروع' : 'Project Overview'}
                   </h3>
                   {project.pdf && (
-                    <a 
-                      href={project.pdf} 
+                    <a
+                      href={project.pdf}
                       download={`${title.replace(/\s+/g, '_')}_Case_Study.pdf`}
                       className="text-[11px] font-bold text-blue-600 hover:text-blue-700 flex items-center bg-blue-600/10 px-3 py-1.5 rounded-lg transition-colors group"
                     >
@@ -100,7 +100,7 @@ const ProjectModal = ({ project, isOpen, onClose }: { project: Project, isOpen: 
                   <div className="space-y-2">
                     {features.map((f, i) => (
                       <div key={i} className="flex items-center text-xs font-medium text-slate-600 dark:text-slate-400 rtl:text-right">
-                        <Zap size={12} className="me-2 text-yellow-500 flex-shrink-0" /> 
+                        <Zap size={12} className="me-2 text-yellow-500 flex-shrink-0" />
                         <span className="truncate">{f}</span>
                       </div>
                     ))}
@@ -136,7 +136,7 @@ const ProjectModal = ({ project, isOpen, onClose }: { project: Project, isOpen: 
                     ))}
                   </ul>
                 </div>
-                
+
                 {challenges && (
                   <div className="flex items-start space-x-3 rtl:space-x-reverse pt-3 border-t border-blue-600/10">
                     <div className="p-2 bg-red-500/10 text-red-500 rounded-xl mt-0.5 flex-shrink-0">
@@ -176,7 +176,7 @@ const ProjectCard = ({ project, onClick, idx }: { project: Project, onClick: () 
   const subtitle = isAr ? project.subtitleAr : project.subtitle;
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: idx * 0.1 }}
@@ -205,7 +205,7 @@ const ProjectCard = ({ project, onClick, idx }: { project: Project, onClick: () 
           </div>
         )}
       </div>
-      
+
       <div className="p-6 md:p-8 flex flex-col flex-1 space-y-3 rtl:text-right">
         <h3 className="text-xl md:text-2xl font-bold font-outfit text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">
           {title}
@@ -213,7 +213,7 @@ const ProjectCard = ({ project, onClick, idx }: { project: Project, onClick: () 
         <p className="text-slate-500 dark:text-slate-400 text-xs md:text-sm font-medium leading-relaxed line-clamp-2">
           {subtitle}
         </p>
-        
+
         <div className="flex flex-wrap gap-1.5 pt-2 rtl:flex-row-reverse">
           {project.techStack.slice(0, 4).map((t, i) => (
             <span key={i} className="px-2.5 py-1 bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400 rounded-md text-[9px] font-bold tracking-wide uppercase">
@@ -250,14 +250,14 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="section-padding py-24 relative overflow-hidden">
       <div className="flex flex-col items-center text-center space-y-4 mb-16">
-        <motion.span 
+        <motion.span
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           className="text-blue-600 font-bold tracking-widest uppercase text-sm"
         >
           {t('projects')}
         </motion.span>
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           className="text-3xl md:text-5xl font-bold font-outfit tracking-tight"
@@ -265,8 +265,8 @@ const Projects: React.FC = () => {
           {i18n.language === 'ar' ? 'دراسات حالة هندسية' : 'Engineering Case Studies'}
         </motion.h2>
         <motion.p className="text-slate-500 dark:text-slate-400 max-w-2xl font-medium rtl:text-center text-sm md:text-base">
-          {i18n.language === 'ar' 
-            ? 'دراسات حالة مفصلة لتطبيقات المؤسسات الصناعية وحلول الجوال عالية الأداء.' 
+          {i18n.language === 'ar'
+            ? 'دراسات حالة مفصلة لتطبيقات المؤسسات الصناعية وحلول الجوال عالية الأداء.'
             : 'In-depth case studies documenting enterprise architectures, performance breakthroughs, and scalable React Native mobile systems.'}
         </motion.p>
       </div>
@@ -279,7 +279,7 @@ const Projects: React.FC = () => {
 
       {!showAll && projects.length > 3 && (
         <div className="mt-16 flex justify-center">
-          <button 
+          <button
             onClick={() => setShowAll(true)}
             className="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl font-bold text-sm md:text-base hover:border-blue-600 hover:text-blue-600 dark:hover:text-blue-400 transition-all transform hover:-translate-y-1 shadow-md hover:shadow-xl"
           >
@@ -289,10 +289,10 @@ const Projects: React.FC = () => {
       )}
 
       {selectedProject && (
-        <ProjectModal 
-          project={selectedProject} 
-          isOpen={!!selectedProject} 
-          onClose={() => setSelectedProject(null)} 
+        <ProjectModal
+          project={selectedProject}
+          isOpen={!!selectedProject}
+          onClose={() => setSelectedProject(null)}
         />
       )}
     </section>

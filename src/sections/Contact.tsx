@@ -1,43 +1,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Download, MessageCircle } from 'lucide-react';
+import { Mail, Send, Github, Linkedin, Download, MessageCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const Contact: React.FC = () => {
   const { t, i18n } = useTranslation();
-  
+
   const contactInfo = [
-    { 
-      icon: <Mail className="text-blue-600 dark:text-blue-400" />, 
-      title: t('contact_info.email', 'Email'), 
-      value: "rasikbinibrahim@gmail.com", 
-      href: "mailto:rasikbinibrahim@gmail.com" 
+    {
+      icon: <Mail className="text-blue-600 dark:text-blue-400" />,
+      title: t('contact_info.email', 'Email'),
+      value: "rasikbinibrahim@gmail.com",
+      href: "mailto:rasikbinibrahim@gmail.com"
     },
-    { 
-      icon: <MessageCircle className="text-emerald-600 dark:text-emerald-400" />, 
-      title: t('contact_info.whatsapp', 'WhatsApp'), 
-      value: "+91 9585248912", 
+    {
+      icon: <MessageCircle className="text-emerald-600 dark:text-emerald-400" />,
+      title: t('contact_info.whatsapp', 'WhatsApp'),
+      value: "+91 9585248912",
       href: "https://wa.me/919585248912",
       target: "_blank"
     },
-    { 
-      icon: <Linkedin className="text-blue-700 dark:text-blue-500" />, 
-      title: t('contact_info.linkedin', 'LinkedIn'), 
-      value: "linkedin.com/in/rasikbinibrahim", 
+    {
+      icon: <Linkedin className="text-blue-700 dark:text-blue-500" />,
+      title: t('contact_info.linkedin', 'LinkedIn'),
+      value: "linkedin.com/in/rasikbinibrahim",
       href: "https://linkedin.com/in/rasikbinibrahim",
       target: "_blank"
     },
-    { 
-      icon: <Github className="text-slate-900 dark:text-white" />, 
-      title: t('contact_info.github', 'GitHub'), 
-      value: "github.com/rasikbinibrahim", 
+    {
+      icon: <Github className="text-slate-900 dark:text-white" />,
+      title: t('contact_info.github', 'GitHub'),
+      value: "github.com/rasikbinibrahim",
       href: "https://github.com/rasikbinibrahim",
       target: "_blank"
     },
-    { 
-      icon: <Download className="text-indigo-600 dark:text-indigo-400" />, 
-      title: t('contact_info.resume', 'Resume Download'), 
-      value: "Enterprise CV (.pdf)", 
+    {
+      icon: <Download className="text-indigo-600 dark:text-indigo-400" />,
+      title: t('contact_info.resume', 'Resume Download'),
+      value: "Enterprise CV (.pdf)",
       href: "/assets/project/Rasik_Nizam_Senior_Frontend_Engineer_Resume.pdf",
       download: "Rasik_Nizam_Senior_Frontend_Engineer_Resume.pdf"
     }
@@ -108,7 +108,7 @@ const Contact: React.FC = () => {
     <section id="contact" className="section-padding py-32 overflow-hidden relative">
       {/* Background glow enhancement for contrast */}
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none -translate-y-1/2" />
-      
+
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start relative z-10">
         <div className="space-y-10">
           <div className="space-y-4">
