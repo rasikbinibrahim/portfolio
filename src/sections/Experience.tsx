@@ -3,47 +3,28 @@ import { motion } from 'framer-motion';
 import { MapPin, Briefcase, CheckCircle2, Calendar, Layers, ShieldCheck, Smartphone } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-// Directly reference uploaded binary asset paths from local environment mapping
-// @ts-ignore
-import petrusLogoImg from '/mnt/c/Users/PTPL0267/.gemini/antigravity/brain/0d1cfbf4-ced5-4fbd-9081-4b6a25f2946c/media__1778574758457.png';
-// @ts-ignore
-import oreopsLogoImg from '/mnt/c/Users/PTPL0267/.gemini/antigravity/brain/0d1cfbf4-ced5-4fbd-9081-4b6a25f2946c/media__1778574831985.png';
-// @ts-ignore
-import kgislLogoImg from '/mnt/c/Users/PTPL0267/.gemini/antigravity/brain/0d1cfbf4-ced5-4fbd-9081-4b6a25f2946c/media__1778574887577.png';
-// @ts-ignore
-import latlonLogoImg from '/mnt/c/Users/PTPL0267/.gemini/antigravity/brain/0d1cfbf4-ced5-4fbd-9081-4b6a25f2946c/media__1778575187679.png';
-
-// Premium Left-Side Logo Box handling ES imported absolute assets, native web asset routes, and fallback styling
+// Premium Left-Side Logo Box handling standalone public assets and vector fallbacks directly
 const CompanyLogo = ({ 
-  primarySrc,
-  secondarySrc, 
+  src, 
   alt, 
   fallbackIcon, 
   bgClass 
 }: { 
-  primarySrc: string;
-  secondarySrc: string; 
+  src: string; 
   alt: string; 
   fallbackIcon: JSX.Element; 
   bgClass: string; 
 }) => {
-  const [imgSrc, setImgSrc] = useState(primarySrc);
   const [hasError, setHasError] = useState(false);
 
   return (
     <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-md p-2 flex-shrink-0 relative overflow-hidden group-hover:scale-105 transition-all ${bgClass}`}>
       {!hasError ? (
         <img 
-          src={imgSrc} 
+          src={src} 
           alt={alt} 
           className="w-full h-full object-contain transition-opacity duration-300"
-          onError={() => {
-            if (imgSrc === primarySrc) {
-              setImgSrc(secondarySrc);
-            } else {
-              setHasError(true);
-            }
-          }}
+          onError={() => setHasError(true)}
         />
       ) : (
         <div className="flex items-center justify-center w-full h-full text-white">
@@ -65,8 +46,7 @@ const Experience: React.FC = () => {
       role: isAr ? "مهندس برمجيات أول" : "Senior Software Engineer",
       duration: isAr ? "يوليو 2023 – الحاضر" : "July 2023 – Present",
       location: isAr ? "كويمباتور، الهند" : "Coimbatore, India",
-      primaryLogoSrc: petrusLogoImg,
-      secondaryLogoSrc: "/assets/company/petrus.png",
+      logoSrc: "/assets/project/petrusLogoImg.png",
       logoBgClass: "bg-white border border-slate-100 dark:bg-slate-800 dark:border-slate-700",
       fallbackIcon: <Briefcase size={26} className="text-blue-600 dark:text-blue-400" />,
       colorFrom: "from-blue-600",
@@ -101,8 +81,7 @@ const Experience: React.FC = () => {
       role: isAr ? "مطور تطبيقات" : "Application Developer",
       duration: isAr ? "سبتمبر 2022 – يونيو 2023" : "September 2022 – June 2023",
       location: isAr ? "إيرود، الهند" : "Erode, India",
-      primaryLogoSrc: oreopsLogoImg,
-      secondaryLogoSrc: "/assets/company/oreops.png",
+      logoSrc: "/assets/project/oreopsLogoImg.png",
       logoBgClass: "bg-[#7c3aed] border border-purple-500/20",
       fallbackIcon: <Layers size={26} className="text-white" />,
       colorFrom: "from-indigo-600",
@@ -123,8 +102,7 @@ const Experience: React.FC = () => {
       role: isAr ? "مطور مساعد" : "Associate Developer",
       duration: isAr ? "مارس 2022 – أغسطس 2022" : "March 2022 – August 2022",
       location: isAr ? "كويمباتور، الهند" : "Coimbatore, India",
-      primaryLogoSrc: kgislLogoImg,
-      secondaryLogoSrc: "/assets/company/kgisl.png",
+      logoSrc: "/assets/project/kgislLogoImg.png",
       logoBgClass: "bg-white border border-slate-100 dark:bg-slate-800 dark:border-slate-700",
       fallbackIcon: <ShieldCheck size={26} className="text-blue-600 dark:text-blue-400" />,
       colorFrom: "from-emerald-600",
@@ -145,8 +123,7 @@ const Experience: React.FC = () => {
       role: isAr ? "مبرمج ومحلل" : "Programmer Analyst",
       duration: isAr ? "أكتوبر 2020 – مارس 2022" : "October 2020 – March 2022",
       location: isAr ? "كويمباتور، الهند" : "Coimbatore, India",
-      primaryLogoSrc: latlonLogoImg,
-      secondaryLogoSrc: "/assets/company/latlon.png",
+      logoSrc: "/assets/project/latlonLogoImg.png",
       logoBgClass: "bg-white border border-slate-100 dark:bg-slate-800 dark:border-slate-700",
       fallbackIcon: <Smartphone size={26} className="text-blue-600 dark:text-blue-400" />,
       colorFrom: "from-purple-600",
@@ -203,8 +180,7 @@ const Experience: React.FC = () => {
               <div className="flex items-start space-x-4 rtl:space-x-reverse flex-1">
                 {/* Left side integrated Company Logo container */}
                 <CompanyLogo 
-                  primarySrc={exp.primaryLogoSrc}
-                  secondarySrc={exp.secondaryLogoSrc} 
+                  src={exp.logoSrc} 
                   alt={exp.company} 
                   fallbackIcon={exp.fallbackIcon}
                   bgClass={exp.logoBgClass}
