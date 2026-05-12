@@ -1,136 +1,260 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin } from 'lucide-react';
+import { MapPin, Briefcase, CheckCircle2, Calendar, Layers, ShieldCheck, Smartphone } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
-const ExperienceItem = ({ company, role, location, duration, description, highlights, color, idx }: any) => (
-  <motion.div 
-    initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.6, delay: idx * 0.2 }}
-    viewport={{ once: true }}
-    className={`relative flex items-center justify-between mb-16 w-full ${idx % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
-  >
-    {/* Content */}
-    <div className={`w-[45%] p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl hover:shadow-2xl transition-all group ${idx % 2 === 0 ? 'text-right' : 'text-left'}`}>
-      <div className={`flex items-center space-x-3 mb-4 ${idx % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
-        <span className="text-sm font-semibold px-3 py-1 bg-blue-600/10 text-blue-600 rounded-full">{duration}</span>
-      </div>
-      <h3 className="text-2xl font-bold font-outfit mb-2 group-hover:text-blue-600 transition-colors">{role}</h3>
-      <div className={`flex items-center space-x-2 text-slate-500 dark:text-slate-400 mb-6 ${idx % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
-        <span className="font-semibold text-slate-800 dark:text-slate-200">{company}</span>
-        <MapPin size={14} />
-        <span className="text-sm">{location}</span>
-      </div>
-      <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-        {description}
-      </p>
-      <ul className={`space-y-2 ${idx % 2 === 0 ? 'flex flex-col items-end' : ''}`}>
-        {highlights.map((h: string, i: number) => (
-          <li key={i} className="flex items-center text-sm font-medium text-slate-700 dark:text-slate-300">
-            <span className={`w-1.5 h-1.5 rounded-full bg-blue-600 mr-2 ${idx % 2 === 0 ? 'order-last ml-2' : ''}`} />
-            {h}
-          </li>
-        ))}
-      </ul>
+// Directly reference uploaded binary asset paths from local environment mapping
+// @ts-ignore
+import petrusLogoImg from '/mnt/c/Users/PTPL0267/.gemini/antigravity/brain/0d1cfbf4-ced5-4fbd-9081-4b6a25f2946c/media__1778574758457.png';
+// @ts-ignore
+import oreopsLogoImg from '/mnt/c/Users/PTPL0267/.gemini/antigravity/brain/0d1cfbf4-ced5-4fbd-9081-4b6a25f2946c/media__1778574831985.png';
+// @ts-ignore
+import kgislLogoImg from '/mnt/c/Users/PTPL0267/.gemini/antigravity/brain/0d1cfbf4-ced5-4fbd-9081-4b6a25f2946c/media__1778574887577.png';
+// @ts-ignore
+import latlonLogoImg from '/mnt/c/Users/PTPL0267/.gemini/antigravity/brain/0d1cfbf4-ced5-4fbd-9081-4b6a25f2946c/media__1778575187679.png';
+
+// Premium Left-Side Logo Box handling ES imported absolute assets, native web asset routes, and fallback styling
+const CompanyLogo = ({ 
+  primarySrc,
+  secondarySrc, 
+  alt, 
+  fallbackIcon, 
+  bgClass 
+}: { 
+  primarySrc: string;
+  secondarySrc: string; 
+  alt: string; 
+  fallbackIcon: JSX.Element; 
+  bgClass: string; 
+}) => {
+  const [imgSrc, setImgSrc] = useState(primarySrc);
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-md p-2 flex-shrink-0 relative overflow-hidden group-hover:scale-105 transition-all ${bgClass}`}>
+      {!hasError ? (
+        <img 
+          src={imgSrc} 
+          alt={alt} 
+          className="w-full h-full object-contain transition-opacity duration-300"
+          onError={() => {
+            if (imgSrc === primarySrc) {
+              setImgSrc(secondarySrc);
+            } else {
+              setHasError(true);
+            }
+          }}
+        />
+      ) : (
+        <div className="flex items-center justify-center w-full h-full text-white">
+          {fallbackIcon}
+        </div>
+      )}
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-white/5 transition-colors pointer-events-none" />
     </div>
-
-    {/* Center Dot */}
-    <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
-      <motion.div 
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        transition={{ delay: 0.3, duration: 0.4 }}
-        className={`w-6 h-6 rounded-full border-4 border-white dark:border-slate-950 shadow-lg ${color}`} 
-      />
-      <div className="w-0.5 h-32 bg-slate-200 dark:bg-slate-800" />
-    </div>
-
-    <div className="w-[45%]" />
-  </motion.div>
-);
+  );
+};
 
 const Experience: React.FC = () => {
+  const { i18n } = useTranslation();
+  const isAr = i18n.language === 'ar';
+
   const experiences = [
     {
-      company: "Petrus Technologies Pvt. Ltd",
-      role: "Senior Software Engineer",
-      location: "Coimbatore, India",
-      duration: "10 July 2023 - Present",
-      description: "Leading the development of industrial Control Tower Dashboards and complex enterprise systems.",
-      highlights: [
-        "Led Control Tower Dashboard development",
-        "Built comprehensive RBAC system",
-        "Improved app performance by 30%",
-        "Architected AWS cloud deployments"
-      ],
-      color: "bg-green-500"
+      company: "Petrus Technologies Pvt. Ltd.",
+      role: isAr ? "مهندس برمجيات أول" : "Senior Software Engineer",
+      duration: isAr ? "يوليو 2023 – الحاضر" : "July 2023 – Present",
+      location: isAr ? "كويمباتور، الهند" : "Coimbatore, India",
+      primaryLogoSrc: petrusLogoImg,
+      secondaryLogoSrc: "/assets/company/petrus.png",
+      logoBgClass: "bg-white border border-slate-100 dark:bg-slate-800 dark:border-slate-700",
+      fallbackIcon: <Briefcase size={26} className="text-blue-600 dark:text-blue-400" />,
+      colorFrom: "from-blue-600",
+      colorTo: "to-indigo-600",
+      badgeColor: "bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border-blue-100 dark:border-blue-900/50",
+      responsibilities: isAr ? [
+        "تصميم لوحة تحكم OEE (الفعالية الشاملة للمعدات) في الوقت الفعلي عبر أكثر من 20 خط إنتاج، مما يتيح التتبع المباشر لمقاييس الأداء والتوافر والجودة.",
+        "بناء لوحات تحكم عالية الأداء لتصور البيانات الصناعية المباشرة، مما أدى إلى تحسين الرؤية التشغيلية لفرق المصانع.",
+        "تقليل مكالمات API بنسبة 50% باستخدام TanStack Query (التخزين المؤقت، إعادة الجلب في الخلفية، التحديثات المتفائلة).",
+        "ترحيل واجهات برمجة التطبيقات REST → GraphQL (Apollo Client)، مما قلل حجم البيانات بنسبة 60% وحسّن استجابة واجهة المستخدم.",
+        "تحسين أداء التحميل الأولي بنسبة 35% باستخدام العرض الهجين Next.js SSR/CSR.",
+        "تطوير مكتبة مكونات قابلة لإعادة الاستخدام (15+ وحدة)، بما في ذلك بطاقات الأداء، الرسوم البيانية، التنبيهات، وأنظمة التقارير، مما قلل جهد التطوير بنسبة 30%.",
+        "بناء أنظمة تصور ديناميكية، مما قلل جهد إعداد التقارير اليدوية بنسبة 40% لكل وردية.",
+        "ضمان وقت تشغيل بنسبة 99.9% للوحات التحكم المستخدمة من قبل أكثر من 100 مستخدم نشط يوميًا.",
+        "تحسين أداء التصيير لمجموعات البيانات الكبيرة باستخدام الحفظ المؤقت (memoization) والتحميل الكسول وإدارة الحالة الفعالة.",
+        "تسليم 6 إصدارات إنتاجية بنسبة تسليم في الوقت المحدد بلغت 95%، باتباع مسارات عمل Git المنظمة ومراجعات الكود."
+      ] : [
+        "Architected a real-time OEE (Overall Equipment Effectiveness) dashboard across 20+ production lines, enabling live tracking of Performance, Availability, and Quality metrics.",
+        "Built high-performance dashboards for real-time industrial data visualization, improving operational visibility across plant teams.",
+        "Reduced API calls by 50% using TanStack Query (caching, background refetching, optimistic updates).",
+        "Migrated REST APIs → GraphQL (Apollo Client), reducing payload size by 60% and improving UI responsiveness.",
+        "Improved initial load performance by 35% using Next.js SSR/CSR hybrid rendering.",
+        "Developed reusable component library (15+ modules), including KPI cards, charts, alerts, and reporting systems, reducing development effort by 30%.",
+        "Built dynamic visualization systems, reducing manual reporting effort by 40% per shift.",
+        "Ensured 99.9% uptime for dashboards used by 100+ daily active users.",
+        "Optimized rendering performance for large datasets using memoization, lazy loading, and efficient state management.",
+        "Delivered 6 production releases with 95% on-time delivery, following structured Git workflows and PR reviews."
+      ]
     },
     {
-      company: "OREOPS Framework Pvt. Ltd",
-      role: "Application Developer",
-      location: "Erode, India",
-      duration: "05 September 2022 - 30 June 2023",
-      description: "Contributed to building a robust low-code platform empowering rapid application development.",
-      highlights: [
-        "Architected Low-code platform UI",
-        "Developed dynamic form engine",
-        "Built enterprise component library",
-        "Optimized drag-and-drop experience"
-      ],
-      color: "bg-blue-600"
+      company: "OREOPS Framework Pvt. Ltd.",
+      role: isAr ? "مطور تطبيقات" : "Application Developer",
+      duration: isAr ? "سبتمبر 2022 – يونيو 2023" : "September 2022 – June 2023",
+      location: isAr ? "إيرود، الهند" : "Erode, India",
+      primaryLogoSrc: oreopsLogoImg,
+      secondaryLogoSrc: "/assets/company/oreops.png",
+      logoBgClass: "bg-[#7c3aed] border border-purple-500/20",
+      fallbackIcon: <Layers size={26} className="text-white" />,
+      colorFrom: "from-indigo-600",
+      colorTo: "to-purple-600",
+      badgeColor: "bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 border-indigo-100 dark:border-indigo-900/50",
+      responsibilities: isAr ? [
+        "بناء محرك نماذج ديناميكي قائم على المخطط، مما قلل من جهد التطوير بنسبة 50%.",
+        "تطوير مكتبات مكونات واجهة مستخدم قابلة لإعادة الاستخدام عبر تطبيقات SaaS للمؤسسات.",
+        "تصميم بنية واجهة أمامية قابلة للتوسع لمنصات التطوير منخفضة الأكواد / بدون أكواد."
+      ] : [
+        "Built a schema-driven dynamic form engine, reducing development effort by 50%.",
+        "Developed reusable UI component libraries across enterprise SaaS applications.",
+        "Designed scalable frontend architecture for low-code/no-code platforms."
+      ]
     },
     {
-      company: "KGISL",
-      role: "Associate Developer",
-      location: "Coimbatore, India",
-      duration: "23 March 2022 - 26 August 2022",
-      description: "Focused on secure banking application interfaces and authentication systems.",
-      highlights: [
-        "Designed Banking app interfaces",
-        "Implemented OAuth 2.0 & JWT security",
-        "Managed large-scale data migrations",
-        "Ensured banking compliance standards"
-      ],
-      color: "bg-purple-600"
+      company: "KGiSL",
+      role: isAr ? "مطور مساعد" : "Associate Developer",
+      duration: isAr ? "مارس 2022 – أغسطس 2022" : "March 2022 – August 2022",
+      location: isAr ? "كويمباتور، الهند" : "Coimbatore, India",
+      primaryLogoSrc: kgislLogoImg,
+      secondaryLogoSrc: "/assets/company/kgisl.png",
+      logoBgClass: "bg-white border border-slate-100 dark:bg-slate-800 dark:border-slate-700",
+      fallbackIcon: <ShieldCheck size={26} className="text-blue-600 dark:text-blue-400" />,
+      colorFrom: "from-emerald-600",
+      colorTo: "to-teal-600",
+      badgeColor: "bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border-emerald-100 dark:border-emerald-900/50",
+      responsibilities: isAr ? [
+        "تطوير وحدات واجهة مستخدم آمنة لتطبيقات الخدمات المصرفية عبر الهاتف المحمول.",
+        "تنفيذ تدفقات المصادقة القائمة على OAuth 2.0 و JWT.",
+        "تحسين أداء وسهولة استخدام مسارات العمل المالية الحرجة."
+      ] : [
+        "Developed secure UI modules for mobile banking applications.",
+        "Implemented OAuth 2.0 & JWT-based authentication flows.",
+        "Improved performance and usability of critical financial workflows."
+      ]
     },
     {
-      company: "Latlon Technologies Pvt Ltd",
-      role: "Programmer Analyst",
-      location: "Coimbatore, India",
-      duration: "14 October 2020 - 04 March 2022",
-      description: "Developed healthcare solutions focusing on real-time appointments and e-prescriptions.",
-      highlights: [
-        "Built Telehealth web application",
-        "Real-time appointment scheduling",
-        "E-prescription management module",
-        "Integrated third-party health APIs"
-      ],
-      color: "bg-yellow-500"
+      company: "Latlon Technologies Pvt. Ltd.",
+      role: isAr ? "مبرمج ومحلل" : "Programmer Analyst",
+      duration: isAr ? "أكتوبر 2020 – مارس 2022" : "October 2020 – March 2022",
+      location: isAr ? "كويمباتور، الهند" : "Coimbatore, India",
+      primaryLogoSrc: latlonLogoImg,
+      secondaryLogoSrc: "/assets/company/latlon.png",
+      logoBgClass: "bg-white border border-slate-100 dark:bg-slate-800 dark:border-slate-700",
+      fallbackIcon: <Smartphone size={26} className="text-blue-600 dark:text-blue-400" />,
+      colorFrom: "from-purple-600",
+      colorTo: "to-pink-600",
+      badgeColor: "bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 border-purple-100 dark:border-purple-900/50",
+      responsibilities: isAr ? [
+        "بناء تطبيقات رعاية صحية باستخدام React Native، بما في ذلك أنظمة الاستشارات والسجلات الطبية.",
+        "تكامل واجهات برمجة التطبيقات REST لتبادل البيانات في الوقت الفعلي.",
+        "تحسين أداء التطبيق بنسبة تقارب 20%."
+      ] : [
+        "Built React Native healthcare applications, including consultation and medical record systems.",
+        "Integrated REST APIs for real-time data exchange.",
+        "Improved application performance by ~20%."
+      ]
     }
   ];
 
   return (
-    <section id="experience" className="section-padding py-24">
-      <div className="flex flex-col items-center text-center space-y-6 mb-24">
+    <section id="experience" className="section-padding py-24 bg-slate-50/40 dark:bg-slate-900/10 border-y border-slate-200/60 dark:border-slate-800/60 relative overflow-hidden">
+      {/* Decorative gradient blur */}
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none -translate-y-1/2" />
+      
+      <div className="flex flex-col items-center text-center space-y-4 mb-16">
         <motion.span 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           className="text-blue-600 font-bold tracking-widest uppercase text-sm"
         >
-          My Journey
+          {isAr ? 'مسيرتي المهنية' : 'Professional Trajectory'}
         </motion.span>
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-3xl md:text-5xl font-bold font-outfit"
+          className="text-3xl md:text-5xl font-bold font-outfit tracking-tight"
         >
-          Work Experience
+          {isAr ? 'الخبرة العملية' : 'Work Experience'}
         </motion.h2>
       </div>
 
-      <div className="relative max-w-5xl mx-auto py-10 before:absolute before:inset-0 before:left-1/2 before:-translate-x-1/2 before:w-0.5 before:bg-slate-200 before:dark:bg-slate-800">
-        {experiences.map((exp, idx) => (
-          <ExperienceItem key={idx} {...exp} idx={idx} />
+      <div className="max-w-5xl mx-auto space-y-12 px-4">
+        {experiences.map((exp, expIdx) => (
+          <motion.div 
+            key={expIdx}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: expIdx * 0.1 }}
+            viewport={{ once: true }}
+            className="relative bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 rounded-[2.5rem] p-6 md:p-10 shadow-xl hover:shadow-2xl transition-all backdrop-blur-sm overflow-hidden group"
+          >
+            {/* Top highlight line */}
+            <div className={`absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r ${exp.colorFrom} ${exp.colorTo}`} />
+            
+            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 pb-6 border-b border-slate-100 dark:border-slate-800 rtl:text-right">
+              <div className="flex items-start space-x-4 rtl:space-x-reverse flex-1">
+                {/* Left side integrated Company Logo container */}
+                <CompanyLogo 
+                  primarySrc={exp.primaryLogoSrc}
+                  secondarySrc={exp.secondaryLogoSrc} 
+                  alt={exp.company} 
+                  fallbackIcon={exp.fallbackIcon}
+                  bgClass={exp.logoBgClass}
+                />
+                
+                <div className="flex-1 min-w-0 pt-0.5">
+                  <h3 className="text-lg md:text-2xl font-bold font-outfit text-slate-900 dark:text-white tracking-tight truncate whitespace-normal">
+                    {exp.role}
+                  </h3>
+                  <div className="flex flex-wrap items-center gap-2 pt-1 text-slate-600 dark:text-slate-400 font-medium text-xs md:text-sm">
+                    <span className="text-slate-900 dark:text-slate-100 font-bold">{exp.company}</span>
+                    <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
+                    <div className="flex items-center text-xs md:text-sm text-slate-500">
+                      <MapPin size={13} className="me-1 flex-shrink-0" />
+                      <span>{exp.location}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className={`flex items-center space-x-1.5 rtl:space-x-reverse px-3.5 py-2 rounded-full font-bold text-xs md:text-sm w-fit border self-start md:self-auto ${exp.badgeColor}`}>
+                <Calendar size={13} className="flex-shrink-0" />
+                <span>{exp.duration}</span>
+              </div>
+            </div>
+
+            <div className="pt-6 rtl:text-right">
+              <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4 px-1">
+                {isAr ? 'المسؤوليات والإنجازات الرئيسية' : 'Core Responsibilities & Impact'}
+              </h4>
+              
+              <div className="grid grid-cols-1 gap-2.5">
+                {exp.responsibilities.map((resp, idx) => (
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: isAr ? 10 : -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.04, duration: 0.3 }}
+                    viewport={{ once: true }}
+                    className="flex items-start space-x-3 rtl:space-x-reverse p-3.5 rounded-xl bg-slate-50/80 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-800/40 hover:border-blue-600/20 transition-colors"
+                  >
+                    <CheckCircle2 size={16} className="text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                    <span className="text-xs md:text-sm text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
+                      {resp}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         ))}
       </div>
     </section>

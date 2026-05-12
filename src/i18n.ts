@@ -7,47 +7,64 @@ const resources = {
   en: {
     translation: {
       "hello": "Hi, I'm",
-      "status": "Open for Opportunities",
-      "role": "Senior Software Engineer",
-      "p1": "I build scalable, real-time enterprise applications using",
-      "p2": "React, React Native & TypeScript",
-      "p3": "Specialized in Control Tower Dashboards, RBAC Systems & High-performance UI.",
+      "status": "Senior Frontend Engineer",
+      "role": "Senior Frontend Engineer (React.js | React Native)",
+      "summary": "Senior Frontend Engineer with 5+ years of experience building high-performance, real-time enterprise applications across manufacturing, fintech, and healthcare domains. Specialized in real-time dashboards, performance optimization (30–60% improvements), and scalable component architectures.",
+      "p1": "Senior Frontend Engineer with",
+      "p2": "5+ years of experience",
+      "p3": "building high-performance, real-time enterprise applications across manufacturing, fintech, and healthcare domains.",
       "view_projects": "View Projects",
-      "resume": "Resume",
+      "resume": "Download Resume",
+      "contact_me": "Contact Me",
       "about": "About Me",
-      "projects": "Selected Works",
+      "projects": "Case Studies",
       "skills": "Skills",
       "contact": "Contact",
       "nav": {
         "home": "Home",
         "about": "About",
-        "projects": "Projects",
         "skills": "Skills",
+        "projects": "Projects",
         "contact": "Contact"
       },
       "codeBlock": {
-        "name": "Rasik Nizam",
-        "role": "Senior Software Engineer",
-        "experience": "5+ Years",
-        "focus": "Enterprise Systems",
-        "returnMsg": "Building the future of UI"
+        "name": "Rasik Nizam M.I",
+        "role": "Senior Frontend Engineer",
+        "experience": "5+ Years of Professional Experience",
+        "focus": "Real-time UI & Scalable Systems",
+        "returnMsg": "Built systems handling real-time data across 20+ lines"
       },
-      "about_title": "Engineering Excellence at Scale",
-      "about_p1": "I am a Senior Frontend Engineer with 5+ years of experience building enterprise-grade applications across manufacturing, banking, healthcare, and low-code platforms.",
-      "about_p2": "I specialize in designing scalable UI architectures, real-time dashboards, and secure authentication systems. My work focuses on performance, usability, and delivering business-critical solutions.",
+      "about_title": "Engineering High-Performance UI Systems",
+      "about_p1": "I am a Senior Frontend Engineer with 5+ years of experience building high-performance, real-time enterprise applications across manufacturing, fintech, and healthcare domains. I specialize in data-intensive UI systems, state optimization, and crafting premium, responsive interfaces.",
+      "about_p2": "My core achievements include handling real-time industrial data across 20+ production lines (improving operational efficiency by 40%+), building a schema-driven dynamic form engine that reduced development effort by 50%, and publishing robust reusable component libraries across enterprise SaaS platforms.",
       "highlights": [
-        { "title": "5+ Years Experience", "desc": "Building enterprise-grade applications." },
-        { "title": "Enterprise Expert", "desc": "Specializing in complex UI architectures." },
-        { "title": "Real-time Systems", "desc": "Experience with WebSocket, MQTT & DASHBOARDS." },
-        { "title": "Secure Architecture", "desc": "Implementing RBAC & OAuth systems." }
+        { "title": "Real-Time Dashboards", "desc": "Built systems handling live industrial telemetry across 20+ production lines, driving 40%+ operational efficiency." },
+        { "title": "Performance Tuning", "desc": "Achieved 30–60% render optimization, reduced API load by 50% via TanStack Query, and cut payloads by 60% with GraphQL." },
+        { "title": "Component Architecture", "desc": "Developed reusable component libraries across enterprise applications, reducing UI development effort by up to 30%." },
+        { "title": "Dynamic Engines", "desc": "Engineered schema-driven form and workflow engines, accelerating delivery cycles and cutting manual tasks by 50%." }
       ],
-      "contact_title": "Let's build something amazing together.",
-      "contact_desc": "Have a complex enterprise project or just want to chat about tech? Feel free to reach out.",
+      "stats": {
+        "title": "Impact & Overview",
+        "exp": "5+ Years Experience",
+        "exp_sub": "High-performance enterprise development",
+        "proj": "20+ Production Lines",
+        "proj_sub": "Live industrial data tracking",
+        "spec": "30–60% Optimization",
+        "spec_sub": "Speedups in render & payload paths",
+        "expert": "React/React Native",
+        "expert_sub": "Cross-domain expertise (SaaS, Fintech, Health)"
+      },
+      "contact_title": "Let's build high-performance excellence together.",
+      "contact_desc": "Looking for a specialized Senior Frontend Engineer to optimize your application architecture or drive critical product features? Let's connect.",
       "contact_info": {
         "email": "Email",
         "phone": "Phone",
+        "whatsapp": "WhatsApp",
+        "linkedin": "LinkedIn",
+        "github": "GitHub",
+        "resume": "Resume Download",
         "location": "Location",
-        "loc_val": "Coimbatore, Tamil Nadu"
+        "loc_val": "Coimbatore, India"
       },
       "form": {
         "name": "Name",
@@ -55,67 +72,84 @@ const resources = {
         "subject": "Subject",
         "message": "Message",
         "placeholder_name": "John Doe",
-        "placeholder_msg": "Tell me about your project...",
+        "placeholder_msg": "Tell me about your application scalability or project goals...",
         "send": "Send Message",
         "sending": "Sending...",
-        "success": "Message sent successfully! I'll get back to you soon.",
+        "success": "Message sent successfully! I will get back to you promptly.",
         "error": "Something went wrong. Please try again.",
         "invalid": "Please enter a valid email address."
       },
-      "footer_desc": "Senior Software Engineer specializing in Enterprise UI Architectures.",
-      "skills_title": "Tech Stack & Expertise",
-      "skills_desc": "Leveraging modern tools to build high-performance, secure, and user-centric digital experiences.",
+      "footer_desc": "Senior Frontend Engineer specialized in real-time dashboards, performance optimization, and scalable design architectures.",
+      "skills_title": "Core Technical Expertise",
+      "skills_desc": "Comprehensive skills honed over 5+ years building secure, highly optimized enterprise web and mobile applications.",
       "skill_cats": {
-        "frontend": "Frontend Development",
-        "backend": "Backend & Real-time",
-        "cloud": "Cloud & Infrastructure"
+        "core": "Core Frameworks & Languages",
+        "state": "State Management & Styling",
+        "tools": "APIs, Cloud & Tools"
       }
     }
   },
   ar: {
     translation: {
       "hello": "مرحباً، أنا",
-      "status": "متاح للفرص",
-      "role": "مهندس برمجيات أول",
-      "p1": "أقوم ببناء تطبيقات برمجية قابلة للتوسع وفي الوقت الفعلي باستخدام",
-      "p2": "React و React Native و TypeScript",
-      "p3": "متخصص في لوحات تحكم Control Tower وأنظمة RBAC وواجهات مستخدم عالية الأداء.",
-      "view_projects": "مشاهدة المشاريع",
-      "resume": "السيرة الذاتية",
-      "about": "حول",
-      "projects": "أعمال مختارة",
+      "status": "مهندس واجهات أمامية أول",
+      "role": "مهندس واجهات أمامية أول (React.js | React Native)",
+      "summary": "مهندس واجهات أمامية أول بخبرة تزيد عن 5 سنوات في بناء تطبيقات مؤسسية عالية الأداء وتعمل في الوقت الفعلي في مجالات التصنيع والتكنولوجيا المالية والرعاية الصحية. متخصص في لوحات التحكم الفورية، وتحسين الأداء (30-60%)، وبنى المكونات القابلة للتوسع.",
+      "p1": "مهندس واجهات أمامية أول مع",
+      "p2": "خبرة تزيد عن 5 سنوات",
+      "p3": "في بناء تطبيقات مؤسسية عالية الأداء وتعمل في الوقت الفعلي في مجالات التصنيع والتكنولوجيا المالية والرعاية الصحية.",
+      "view_projects": "عرض المشاريع",
+      "resume": "تحميل السيرة الذاتية",
+      "contact_me": "اتصل بي",
+      "about": "نبذة عني",
+      "projects": "دراسات الحالة",
       "skills": "المهارات",
       "contact": "اتصل بي",
       "nav": {
         "home": "الرئيسية",
         "about": "حول",
-        "projects": "المشاريع",
         "skills": "المهارات",
+        "projects": "المشاريع",
         "contact": "اتصل بي"
       },
       "codeBlock": {
         "name": "راسك نظام",
-        "role": "مهندس برمجيات أول",
-        "experience": "أكثر من 5 سنوات",
-        "focus": "أنظمة المؤسسات",
-        "returnMsg": "بناء مستقبل واجهات المستخدم"
+        "role": "مهندس واجهات أمامية أول",
+        "experience": "خبرة تزيد عن 5 سنوات",
+        "focus": "واجهات الوقت الفعلي والأنظمة القابلة للتوسع",
+        "returnMsg": "بناء أنظمة تتعامل مع بيانات الوقت الفعلي عبر أكثر من 20 خط إنتاج"
       },
-      "about_title": "التميز الهندسي على نطاق واسع",
-      "about_p1": "أنا مهندس واجهة أمامية أول أتمتع بخبرة تزيد عن 5 سنوات في بناء تطبيقات لمستوى المؤسسات عبر مجالات التصنيع والخدمات المصرفية والرعاية الصحية ومنصات التطوير منخفضة الأكواد.",
-      "about_p2": "أنا متخصص في تصميم بنى واجهات مستخدم قابلة للتوسع، ولوحات تحكم في الوقت الفعلي، وأنظمة مصادقة آمنة. يركز عملي على الأداء وسهولة الاستخدام وتقديم حلول بالغة الأهمية للأعمال.",
+      "about_title": "هندسة أنظمة واجهات مستخدم عالية الأداء",
+      "about_p1": "أنا مهندس واجهات أمامية أول بخبرة تزيد عن 5 سنوات في بناء تطبيقات مؤسسية عالية الأداء وتعمل في الوقت الفعلي في مجالات التصنيع والتكنولوجيا المالية والرعاية الصحية. متخصص في أنظمة واجهات المستخدم كثيفة البيانات، وتحسين الحالة، وتصميم واجهات متطورة ومتجاوبة.",
+      "about_p2": "تشمل إنجازاتي الأساسية التعامل مع البيانات الصناعية في الوقت الفعلي عبر أكثر من 20 خط إنتاج (مما أدى إلى تحسين الكفاءة التشغيلية بنسبة 40٪+)، وبناء محرك نماذج ديناميكي قائم على المخطط قلل من جهد التطوير بنسبة 50٪، ونشر مكتبات مكونات قوية وقابلة لإعادة الاستخدام عبر منصات SaaS للمؤسسات.",
       "highlights": [
-        { "title": "خبرة 5+ سنوات", "desc": "بناء تطبيقات لمستوى المؤسسات." },
-        { "title": "خبير أنظمة مؤسسات", "desc": "متخصص في بنى واجهات المستخدم المعقدة." },
-        { "title": "أنظمة الوقت الفعلي", "desc": "خبرة في WebSocket و MQTT ولوحات التحكم." },
-        { "title": "بنية آمنة", "desc": "تنفيذ أنظمة RBAC و OAuth." }
+        { "title": "لوحات تحكم فورية", "desc": "بناء أنظمة للتعامل مع القياس عن بعد الصناعي المباشر عبر أكثر من 20 خط إنتاج، مما أدى إلى كفاءة تشغيلية بنسبة 40٪+." },
+        { "title": "تحسين الأداء", "desc": "تحقيق تحسين للتصيير بنسبة 30-60٪، وتقليل حمل API بنسبة 50٪ عبر TanStack Query، وتقليل الحمولات بنسبة 60٪ مع GraphQL." },
+        { "title": "بنية المكونات", "desc": "تطوير مكتبات مكونات قابلة لإعادة الاستخدام عبر تطبيقات المؤسسات، مما قلل من جهد تطوير واجهة المستخدم بنسبة تصل إلى 30٪." },
+        { "title": "محركات ديناميكية", "desc": "هندسة نماذج ومحركات سير عمل قائمة على المخططات، مما أدى إلى تسريع دورات التسليم وتقليل المهام اليدوية بنسبة 50٪." }
       ],
-      "contact_title": "لنقم ببناء شيء مذهل معاً.",
-      "contact_desc": "هل لديك مشروع مؤسسي معقد أو ترغب فقط في الدردشة حول التكنولوجيا؟ لا تتردد في الاتصال بي.",
+      "stats": {
+        "title": "الأثر والنظرة العامة",
+        "exp": "خبرة 5+ سنوات",
+        "exp_sub": "تطوير مؤسسي عالي الأداء",
+        "proj": "20+ خط إنتاج",
+        "proj_sub": "تتبع البيانات الصناعية المباشرة",
+        "spec": "تحسين 30–60%",
+        "spec_sub": "تسريع في مسارات التصيير والحمولات",
+        "expert": "React / React Native",
+        "expert_sub": "خبرة متعددة المجالات (SaaS، تقنية مالية، صحة)"
+      },
+      "contact_title": "لنقم ببناء التميز والأداء العالي معاً.",
+      "contact_desc": "هل تبحث عن مهندس واجهات أمامية أول متخصص لتحسين بنية تطبيقك أو قيادة ميزات المنتج الحرجة؟ دعنا نتواصل.",
       "contact_info": {
         "email": "البريد الإلكتروني",
         "phone": "الهاتف",
+        "whatsapp": "واتساب",
+        "linkedin": "لينكد إن",
+        "github": "جيت هاب",
+        "resume": "تحميل السيرة الذاتية",
         "location": "الموقع",
-        "loc_val": "كويمباتور، تاميل نادو"
+        "loc_val": "كويمباتور، الهند"
       },
       "form": {
         "name": "الاسم",
@@ -123,20 +157,20 @@ const resources = {
         "subject": "الموضوع",
         "message": "الرسالة",
         "placeholder_name": "جون دو",
-        "placeholder_msg": "أخبرني عن مشروعك...",
+        "placeholder_msg": "أخبرني عن أهداف قابلية التوسع لتطبيقك أو مشروعك...",
         "send": "إرسال الرسالة",
         "sending": "جاري الإرسال...",
-        "success": "تم إرسال الرسالة بنجاح! سأرد عليك قريبًا.",
+        "success": "تم إرسال الرسالة بنجاح! سأرد عليك في أقرب وقت.",
         "error": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
         "invalid": "يرجى إدخال عنوان بريد إلكتروني صالح."
       },
-      "footer_desc": "مهندس برمجيات أول متخصص في بنى واجهات المستخدم للمؤسسات.",
-      "skills_title": "التقنيات والخبرات",
-      "skills_desc": "الاستفادة من الأدوات الحديثة لبناء تجارب رقمية عالية الأداء وآمنة وتتمحور حول المستخدم.",
+      "footer_desc": "مهندس واجهات أمامية أول متخصص في لوحات التحكم الفورية، وتحسين الأداء، وبنى التصميم القابلة للتوسع.",
+      "skills_title": "الخبرات التقنية الأساسية",
+      "skills_desc": "مهارات شاملة تم صقلها على مدار أكثر من 5 سنوات في بناء تطبيقات ويب وجوال آمنة ومحسنة للغاية للمؤسسات.",
       "skill_cats": {
-        "frontend": "تطوير الواجهة الأمامية",
-        "backend": "الخلفية والوقت الفعلي",
-        "cloud": "السحابة والبنية التحتية"
+        "core": "أطر العمل واللغات الأساسية",
+        "state": "إدارة الحالة والتصميم",
+        "tools": "واجهات برمجة التطبيقات والسحابة والأدوات"
       }
     }
   }

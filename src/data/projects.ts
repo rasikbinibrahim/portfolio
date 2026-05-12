@@ -79,6 +79,10 @@ export const projects: Project[] = [
       "تحقيق تحسن بنسبة 30% في أداء لوحات التحكم",
       "تمكين اتخاذ القرار في الوقت الفعلي على نطاق واسع"
     ],
+    challenges: "Managing state synchronization across complex hierarchical dashboards with highly frequent streaming metrics without degrading render tree efficiency.",
+    challengesAr: "إدارة مزامنة الحالة عبر لوحات تحكم هرمية معقدة مع مقاييس تدفق عالية التردد دون التأثير على كفاءة شجرة التصيير.",
+    optimizations: "Implemented strict memoization logic, optimized Redux Toolkit selectors, and debounced chart animations resulting in a 30% speedup in critical render paths.",
+    optimizationsAr: "تنفيذ منطق التخزين المؤقت الصارم، وتحسين محددات Redux Toolkit، وتأخير حركات الرسم البياني مما أدى إلى تسريع بنسبة 30٪ في مسارات التصيير الحرجة.",
     image: "/assets/project/petrus-connect-2.png",
     pdf: "/assets/project/petrus-connect-2.pdf",
     category: 'Industrial',
@@ -130,6 +134,10 @@ export const projects: Project[] = [
       "مركزية مراقبة المؤسسة",
       "تحسين سرعة ودقة اتخاذ القرار"
     ],
+    challenges: "Handling extensive multi-dimensional arrays for drill-down charts spanning continuous historical periods while maintaining smooth UI interactivity.",
+    challengesAr: "التعامل مع مصفوفات ضخمة متعددة الأبعاد للرسوم البيانية التفصيلية التي تغطي فترات تاريخية مستمرة مع الحفاظ على تفاعل سلس لواجهة المستخدم.",
+    optimizations: "Leveraged lazy loading for non-visible modules and fine-tuned Canvas-based rendering in ECharts to minimize JavaScript thread blocking.",
+    optimizationsAr: "استخدام التحميل الكسول للوحدات غير المرئية وضبط تصيير Canvas في ECharts لتقليل حظر خيط JavaScript.",
     image: "/assets/project/havells-control-tower.png",
     pdf: "/assets/project/havells-control-tower.pdf",
     category: 'Industrial',
@@ -181,6 +189,10 @@ export const projects: Project[] = [
       "تحسين كفاءة المشغل",
       "تمكين اتخاذ القرار في ورشة العمل في الوقت الفعلي"
     ],
+    challenges: "Rendering unbuffered live MQTT telemetry packets continuously on industrial tablet nodes running constrained hardware profiles.",
+    challengesAr: "تصيير حزم القياس عن بعد الحية لـ MQTT باستمرار على أجهزة لوحية صناعية تعمل بمواصفات أجهزة محدودة.",
+    optimizations: "Created a dedicated throttle-queue middleware to bundle layout repaints, reducing CPU cycle usage by 40%.",
+    optimizationsAr: "إنشاء برنامج وسيط مخصص لتنظيم إعادة رسم التخطيط، مما قلل من استخدام وحدة المعالجة المركزية بنسبة 40٪.",
     image: "/assets/project/hmi-dashboard.png",
     pdf: "/assets/project/hmi-dashboard.pdf",
     category: 'Industrial',
@@ -231,6 +243,10 @@ export const projects: Project[] = [
       "تمكين المستخدمين غير التقنيين من بناء التطبيقات",
       "تسريع دورات تسليم المؤسسات"
     ],
+    challenges: "Maintaining reliable cross-platform component styling parity between native React Native output bundles and web DOM outputs dynamically.",
+    challengesAr: "الحفاظ على تكافؤ موثوق في تصميم المكونات عبر المنصات بين حزم مخرجات React Native الأصلية ومخرجات web DOM بشكل ديناميكي.",
+    optimizations: "Architected a unified tokenized design schema engine that maps visual attributes perfectly across Target Platforms seamlessly.",
+    optimizationsAr: "تصميم محرك مخطط تصميم موحد يقوم بتعيين السمات المرئية بشكل مثالي عبر المنصات المستهدفة بسلاسة.",
     image: "/assets/project/low-code-platform.png",
     pdf: "/assets/project/low-code-platform.pdf",
     category: 'Web',
@@ -279,6 +295,10 @@ export const projects: Project[] = [
       "تقديم تجربة مصرفية آمنة ومستقرة",
       "تحقيق موثوقية عالية (استقرار بنسبة 99.9٪)"
     ],
+    challenges: "Strict memory usage requirements and security runtime checks on background-foreground app lifecycle shifts.",
+    challengesAr: "متطلبات صارمة لاستخدام الذاكرة وفحوصات أمان وقت التشغيل عند تحولات دورة حياة التطبيق بين الخلفية والمقدمة.",
+    optimizations: "Optimized React Native bundle sizes, applied FlatList viewability configurations, and integrated highly secured encrypted storage instances.",
+    optimizationsAr: "تحسين أحجام حزم React Native، وتطبيق تكوينات FlatList، ودمج مثيلات تخزين مشفرة وآمنة للغاية.",
     image: "/assets/project/abfl-banking.png",
     pdf: "/assets/project/abfl-banking.pdf",
     category: 'Mobile'
@@ -326,6 +346,10 @@ export const projects: Project[] = [
       "تقليل عبء عمل الطبيب بنسبة 40٪",
       "تبسيط سير العمل السريري"
     ],
+    challenges: "Handling flawless low-bandwidth state synchronization for offline prescription generation queues.",
+    challengesAr: "التعامل مع مزامنة حالة ذات نطاق ترددي منخفض وقوائم انتظار لإنشاء الوصفات الطبية دون اتصال.",
+    optimizations: "Implemented a local reactive fallback state machine utilizing Redux persist layer paired with intelligent reconciliation sync hooks.",
+    optimizationsAr: "تنفيذ آلة حالة محلية باستخدام طبقة Redux persist مع خطافات مزامنة ذكية للتسوية.",
     image: "/assets/project/clinang-hcp.png",
     pdf: "/assets/project/clinang-hcp.pdf",
     category: 'Mobile'
@@ -373,6 +397,10 @@ export const projects: Project[] = [
       "تمكين الوصول إلى الرعاية الصحية الرقمية على مدار الساعة طوال أيام الأسبوع",
       "تحقيق رضا مستخدم عالٍ (أكثر من 95٪)"
     ],
+    challenges: "Ensuring highly intuitive access patterns for geriatric target demographics combined with zero-frame-drop interactions.",
+    challengesAr: "ضمان أنماط وصول بديهية للغاية للتركيبة السكانية المستهدفة من كبار السن مع تفاعلات خالية من انخفاض الإطارات.",
+    optimizations: "Refactored main layout navigation stacks to native optimized components to guarantee ultra-responsive fluid gesture tracking.",
+    optimizationsAr: "إعادة هيكلة حزم التنقل الرئيسية إلى مكونات أصلية محسنة لضمان تتبع إيماءات سريع الاستجابة وسلس.",
     image: "/assets/project/clinang-patient.png",
     pdf: "/assets/project/clinang-patient.pdf",
     category: 'Mobile'
